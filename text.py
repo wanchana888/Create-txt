@@ -10,46 +10,46 @@ def fixed_width_format(data, width, align_left=True):
         return str(data).rjust(width)
     
   # ข้อมูลที่ต้องการใช้ในการสร้างไฟล์
-header = {
-    "record_type": "H",  # Header
-    "sequence_number": "000001",
-    "source_id" : "824",
-    "account_number": "1883047050",
-    "company_name": "SOCIAL SECURITY OFFICE [8D]",
-    "transaction_date": "25092024",
-    "time": "11000000"
-}
+# header = {
+#     "record_type": "H",  # Header
+#     "sequence_number": "000001",
+#     "source_id" : "824",
+#     "account_number": "1883047050",
+#     "company_name": "SOCIAL SECURITY OFFICE [8D]",
+#     "transaction_date": "25092024",
+#     "time": "11000000"
+# }
 
-transaction = {
-    "record_type": "D",  # Transaction
-    "sequence_number": "000002",
-    "source_id" : "824",
-    "account_number": "1883047050",
-    "transaction_date": "11092024",
-    "transaction_time": "141348",
-    "company_name": "ห้างหุ้นส่วนจำกัด พร พรหมรังสี พร็อพเพอร์ตี้",
-    "accountno": "73001428340025661",
-    "year": "2566",
-    "type": "1",
-    "invoicecode": "300066100006980",
-    "receiptno": "300067WQW000010",  
-    "branchNo" : "0000",
-    "tellerNo" : "0000",
-    "transaction_type": "CCSH",
-    "Cheque No" : "00000000",
-    "con_amount" : "00000001400",
-    "decimal" : "00",
-    "Cheque bank code": "000",
-    "Cheque bank branch": "0000"
-}
+# transaction = {
+#     "record_type": "D",  # Transaction
+#     "sequence_number": "000002",
+#     "source_id" : "824",
+#     "account_number": "1883047050",
+#     "transaction_date": "11092024",
+#     "transaction_time": "141348",
+#     "company_name": "ห้างหุ้นส่วนจำกัด พร พรหมรังสี พร็อพเพอร์ตี้",
+#     "accountno": "73001428340025661",
+#     "year": "2566",
+#     "type": "1",
+#     "invoicecode": "300066100006980",
+#     "receiptno": "300067WQW000010",  
+#     "branchNo" : "0000",
+#     "tellerNo" : "0000",
+#     "transaction_type": "CCSH",
+#     "Cheque No" : "00000000",
+#     "con_amount" : "00000001400",
+#     "decimal" : "00",
+#     "Cheque bank code": "000",
+#     "Cheque bank branch": "0000"
+# }
 
-footer = {
-    "record_type": "T",  # Footer
-    "sequence_number": "000003",
-    "account_number": "8241883047050",
-    "total_amount": "0000000000000000000000000534893",
-    "total_transactions": "0000010"
-}
+# footer = {
+#     "record_type": "T",  # Footer
+#     "sequence_number": "000003",
+#     "account_number": "8241883047050",
+#     "total_amount": "0000000000000000000000000534893",
+#     "total_transactions": "0000010"
+# }
 
 # ฟังก์ชันในการเขียนไฟล์จากข้อมูลใน CSV
 def write_to_txt(data_list, output_file="output.txt"):
@@ -75,7 +75,7 @@ def write_to_txt(data_list, output_file="output.txt"):
             file.write(
                 fixed_width_format("D", 1) +  # Record type: Detail
                 fixed_width_format(f"{idx:06}", 6) +  # Sequence number
-                fixed_width_format(transaction["source_id"], 3) +   # Source ID 
+                fixed_width_format("824", 3) +   # Source ID 
                 fixed_width_format("1883047050", 10) +  # Account number
                 fixed_width_format(current_date, 8) + +  # Transaction date
                 fixed_width_format(current_time, 6) +  # Transaction time
